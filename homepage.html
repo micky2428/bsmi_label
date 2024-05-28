@@ -23,7 +23,7 @@
 
 		<!--按鍵區-->
 		<div class="row">
-			<input type="file" id="upfile" onchange="PreviewImg()" />
+			<input type="file" id="upfile" onchange="PreviewImg()" />     <!--gapi-upload.js 283th-->
 			<label type="button" for="upfile" class="uploadStyle">選擇檔案</label>
 			<input type="button" id="authorize_button" onclick="handleAuthClick()" value="認証並查核標示">
 			<input type="button" id="signout_button" onclick="handleSignoutClick()" value="登出">
@@ -50,8 +50,8 @@
 			</div>
 		</div>
 	</div>
-	<script defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
-	<script defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
+	<script defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>  <!--gapi-upload.js 31th-->
+	<script defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>  <!--gapi-upload.js 51th-->
 	<script type="text/javascript" src="/js/gapi-upload.js"></script>
 </body>
 </html>
