@@ -6,12 +6,187 @@ body {
 }
 
 #content{
+	width: 362px;
+	height:300px;
+	padding: 10px;
+	font-size:20px;
+	display: inline-block;
+}
+
+h1{
+	display: inline;
+}
+
+input#upfile {
+	display: none;
+}
+
+div.container div.row{
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+}
+
+#content pre{
+	overflow:auto;
+	width: auto;
+	height:240px;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+
+div#cropContainer{
+	font-family: 'Fjalla One', sans-serif;
+	font-size:56px;
+	width: 580px;
+	border-style:dashed;
+	border-width:10px;
+	margin-bottom: 0.3em;
+}
+
+div#cropContainer div#preimgtext{
+	margin-bottom: 1.5em;
+}
+
+div#cropContainer img#preimg{
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1.5em;
+}
+
+*[type="button"]{
+	all: unset;
+	display: inline-block;
+	text-align: center;
+	line-height: 250%;
+	width: 9.5em;
+	font-size: 20px;
+	background-color: #46C263; 
+	color: white;
+	border-radius: 12px;
+	border: 2px solid #46C263;
+}
+
+*[type="button"]:hover{
+	background-color: #FFFFFF;
+	color: black;
+}
+
+a.debug{
+	background-color: #e4e2d9;
+	color: #46C263;
+	border: 2px solid #e4e2d9;
+	width: 3em;
+}
+
+a.debug:hover{
+	background-color: #FFFFFF;
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.7);
+	transition: opacity 500ms;
+	visibility: hidden;
+	opacity: 0;
+}
+.overlay:target {
+	visibility: visible;
+	opacity: 1;
+}
+
+.popup {
+	margin: 70px auto;
+	padding: 20px;
+	background: #fff;
+	border-radius: 5px;
+	width: 50%;
+	position: relative;
+	transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+	margin-top: 0;
+	color: #333;
+	font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	transition: all 200ms;
+	font-size: 60px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #333;
+}
+.popup .close:hover {
+	color: #06D85F;
+}
+.popup .debug {
+	height: 500px;
+	overflow: auto;
+}
+
+.speech-bubble {
+	position: relative;
+	background: #e3e3e3;
+	border-radius: 1em;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 25%;
+	width: 0;
+	height: 0;
+	border: 35px solid transparent;
+	border-left-color: #e3e3e3;
+	border-right: 0;
+	border-bottom: 0;
+	margin-top: -17.5px;
+	margin-right: -35px;
+}
+
+
+@media screen and (width: 600px){
+	.box{
+		width: 50%;
+	}
+	.popup{
+		width: 50%;
+	}
+}
+
+
+
+
+
+
+
+/*以下非原版內容，可不看*/
+/* 
+@import url('https://fonts.cdnfonts.com/css/fjalla-one');
+
+body {
+	background-color: #FFFFFF;
+	width: 600px;
+}
+
+#content{
 	width: 150 px;
 	height:50 px;
 	padding: 10px;
 	font-size:20px;
 	display: inline-block;
 }
+
 
 h1{
 	display: inline;
@@ -165,3 +340,4 @@ a.debug:hover{
 	}
 }
 
+ */
