@@ -59,9 +59,9 @@ function gisLoaded() {
 }
 
 /**
- * Enables user interaction after all libraries are loaded.
+ * Enables user interaction after all libraries are loaded.與51th gisLoaded()相關
  */
-function maybeEnableButtons() {
+function maybeEnableButtons() {   
 	if (gapiInited && gisInited) {
 		document.getElementById('authorize_button').style.visibility = 'visible';
 	}
