@@ -233,21 +233,27 @@ async function uFile() {   //85th，associateed with "content", not working now
 
 	async function ChatGPT(resp) {
 		document.getElementById('debug').innerHTML += "done!<br />等待小幫手回復...";
+		//這行代碼使用 Google API Client Library (gapi) 獲取當前用戶的電子郵件地址。這可能是為了在提交請求時包含使用者的電子郵件地址。
 		const k = await gapi.client.people.people.get({"resourceName": "people/me","personFields": "emailAddresses"});
+		//這行代碼從上一步獲取的結果中提取電子郵件地址的值。
 		const j = k.result.emailAddresses[0].value;
+		//這行代碼創建了一個 XMLHttpRequest 對象，用於向伺服器發送 HTTP 請求。
 		var xhr = new XMLHttpRequest();
+		//post發送訊息給gpt
 		xhr.open('post', '/gpt');
 		var form = new FormData();
+		//這行代碼將使用者的輸入文字 resp 作為一個 Blob 對象添加到 FormData 中，並指定其 MIME 類型為 "text"。
 		form.append('resp_msg', new Blob([resp], {
 			type: 'text'
 		}));
 		form.append('email', j)
 		xhr.responseType = 'text';
 		xhr.send(form);
+		////這段代碼定義了當請求完成時要執行的回調函數
 		xhr.onload = function() {
 			i = xhr.responseText;
 			document.getElementById('debug').innerHTML += "<br />小幫手回覆如下：<br /><pre>" + i + "</pre>";
-			document.getElementById('content').innerHTML = "小幫手回覆如下：<pre>" + i + "</pre>";
+			document.getElementById('content').innerHTML = "小幫手回覆如下：<pre>" + i + "</pre>";                    //與content有關因介面改版，目前not working
 		}
 	}
 }
