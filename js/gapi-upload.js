@@ -15,15 +15,15 @@ let tokenClient;
 let gapiInited = false;
 let gisInited = false;
 
-const IMW = 580;
-let folderName = "OCR-test";
+const IMW = 580;   // 與官方文件不同，待查
+let folderName = "OCR-test"; //google drive文件夾名稱
 
 document.getElementById('authorize_button').style.visibility = 'hidden';
 document.getElementById('signout_button').style.visibility = 'hidden';
 
-document.getElementById('debug').innerHTML = "系統載入完成...";
+document.getElementById('debug').innerHTML = "系統載入完成...";  // 小蟲對話框(狀態顯示列)
 
-let stage='';
+let stage='';  // 與官方文件不同，待查
 
 /**
  * Callback after api.js is loaded.
@@ -70,8 +70,8 @@ function maybeEnableButtons() {
 /**
  *	Sign in the user upon button click.
  */
-function handleAuthClick() {
-	if(document.getElementById("upfile").files[0] === undefined){
+function handleAuthClick() {    // 為了串到資料庫，此處與官方文件不同                  
+	if(document.getElementById("upfile").files[0] === undefined){     
 		alert('請選擇圖片');
 		document.getElementById('content').innerHTML = '請選擇圖片';
 		throw "Image not select!";
