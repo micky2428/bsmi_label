@@ -15,7 +15,7 @@ let tokenClient;
 let gapiInited = false;
 let gisInited = false;
 
-const IMW = 580;   // 與官方文件不同，待查
+const IMW = 580;   // 調整圖片寬度的參數
 let folderName = "OCR-test"; //google drive文件夾名稱
 
 document.getElementById('authorize_button').style.visibility = 'hidden';
