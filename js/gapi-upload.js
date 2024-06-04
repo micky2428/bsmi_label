@@ -70,7 +70,7 @@ function maybeEnableButtons() {
 /**
  *	Sign in the user upon button click, html 27th
  */
-function handleAuthClick() {    // 為了串到資料庫，此處與官方文件不同                  
+function handleAuthClick() {    // 為了串到資料庫，74-85th與官方文件不同，88-98同                  
 	if(document.getElementById("upfile").files[0] === undefined){     
 		alert('請選擇圖片');
 		document.getElementById('content').innerHTML = '請選擇圖片';
@@ -82,7 +82,7 @@ function handleAuthClick() {    // 為了串到資料庫，此處與官方文件
 		}
 		document.getElementById('signout_button').style.visibility = 'visible';
 		document.getElementById('authorize_button').value = '重新查核';
-		await uFile();
+		await uFile();  //119th
 	};
 
 	if (gapi.client.getToken() === null) {
@@ -116,8 +116,8 @@ function handleSignoutClick() {
 /**
  * Upload file to Google Drive.
  */
-async function uFile() {
-	document.getElementById('content').innerHTML = '上傳辨識中，請稍候！';
+async function uFile() {   //85th，associateed with "content", not working now
+	document.getElementById('content').innerHTML = '上傳辨識中，請稍候！';   //對話框改動導致not working
 	document.getElementById('debug').innerHTML += "<br />進入上傳程序...";
 	var accessToken = gapi.auth.getToken().access_token; // Here gapi is used for retrieving the access token.
 	//console.log((await gapi.client.oauth2.userinfo.get()).result);
@@ -280,7 +280,7 @@ function convertBase64ToBlob(base64Image) {
 	});
 }
 
-//上傳圖片，html 26th
+//上傳圖片後預覽，html 26th
 function PreviewImg() {    
 
 	var oFReader = new FileReader();
@@ -304,7 +304,7 @@ function PreviewImg() {
 	stage = Jcrop.attach('upPreview');
 };
 
-function readcorp(cpim) {
+function readcorp(cpim) {   //還不確定用在哪
 
 	var j = cpim.active.pos;
 
