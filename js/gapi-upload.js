@@ -26,7 +26,7 @@ document.getElementById('debug').innerHTML = "系統載入完成...";  // 小蟲
 let stage='';  // 與官方文件不同，待查
 
 /**
- * Callback after api.js is loaded.
+ * Callback after api.js is loaded,，html 54th
  */
 function gapiLoaded() {
 	gapi.load('client', initializeGapiClient);
@@ -46,7 +46,7 @@ async function initializeGapiClient() {
 }
 
 /**
- * Callback after Google Identity Services are loaded.
+ * Callback after Google Identity Services are loaded.認證google帳號，html 54th
  */
 function gisLoaded() {
 	tokenClient = google.accounts.oauth2.initTokenClient({
@@ -68,7 +68,7 @@ function maybeEnableButtons() {
 }
 
 /**
- *	Sign in the user upon button click.
+ *	Sign in the user upon button click, html 27th
  */
 function handleAuthClick() {    // 為了串到資料庫，此處與官方文件不同                  
 	if(document.getElementById("upfile").files[0] === undefined){     
@@ -100,7 +100,7 @@ function handleAuthClick() {    // 為了串到資料庫，此處與官方文件
 }
 
 /**
- *	Sign out the user upon button click.
+ *	Sign out the user upon button click, 登出 html 28th，功能故障疑似自己html改版後content跑掉
  */
 function handleSignoutClick() {
 	const token = gapi.client.getToken();
@@ -280,7 +280,8 @@ function convertBase64ToBlob(base64Image) {
 	});
 }
 
-function PreviewImg() {
+//上傳圖片，html 26th
+function PreviewImg() {    
 
 	var oFReader = new FileReader();
 	oFReader.readAsDataURL(document.getElementById("upfile").files[0]);
