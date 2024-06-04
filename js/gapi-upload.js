@@ -26,7 +26,7 @@ document.getElementById('debug').innerHTML = "系統載入完成...";  // 小蟲
 let stage='';  // 與官方文件不同，待查
 
 /**
- * Callback after api.js is loaded,，html 54th
+ * Callback after api.js(html 53th) is loaded, html 54th
  */
 function gapiLoaded() {
 	gapi.load('client', initializeGapiClient);
