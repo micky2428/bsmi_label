@@ -187,7 +187,7 @@ async function uFile() {   //85th，associateed with "content", not working now
 		}));
 		form.append('file', file);
 
-		var accessToken = gapi.auth.getToken().access_token; // Here gapi is used for retrieving the access token.
+		var accessToken = gapi.auth.getToken().access_token; // Here gapi is used for retrieving the access token. 218th
 		console.log(gapi.auth.getToken())
 		var xhr = new XMLHttpRequest();
 		xhr.open('post', 'https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id', true);
@@ -215,7 +215,7 @@ async function uFile() {   //85th，associateed with "content", not working now
 			var xhr = new XMLHttpRequest();
 			xhr.open('get', 'https://www.googleapis.com/drive/v3/files/' + response.result.id + '/export?mimeType=text%2Fplain&key=' + API_KEY);
 
-			var accessToken = gapi.auth.getToken().access_token;
+			var accessToken = gapi.auth.getToken().access_token;  //190 th
 
 			xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
 			xhr.responseType = 'text';
