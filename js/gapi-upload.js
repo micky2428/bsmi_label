@@ -240,7 +240,7 @@ async function uFile() {
 		//這行代碼創建了一個 XMLHttpRequest 對象，用於向伺服器發送 HTTP 請求。
 		var xhr = new XMLHttpRequest();
 		//post發送訊息給gpt
-		xhr.open('post', '/gpt');                                                                                      //根據chatgpt的結果，./gpt後面可接金鑰
+		xhr.open('post', '/gpt');                                                                                      //根據問chatgpt的結果，./gpt後面可接金鑰，還有prompt遺失，可能要透過flask連接.py檔
 		var form = new FormData();
 		//這行代碼將使用者的輸入文字 resp 作為一個 Blob 對象添加到 FormData 中，並指定其 MIME 類型為 "text"。
 		form.append('resp_msg', new Blob([resp], {
