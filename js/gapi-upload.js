@@ -16,7 +16,7 @@ let gapiInited = false;
 let gisInited = false;
 
 const IMW = 580;   // 調整圖片寬度的參數
-let folderName = "OCR-test"; //google drive文件夾名稱
+let folderName = "OCR-test"; //google drive文件夾名稱，要記得設公開
 
 document.getElementById('authorize_button').style.visibility = 'hidden';
 document.getElementById('signout_button').style.visibility = 'hidden';
@@ -100,7 +100,7 @@ function handleAuthClick() {    // 為了串到資料庫，74-85th與官方文�
 }
 
 /**
- *	Sign out the user upon button click, 登出 html 28th，功能故障疑似自己html改版後content跑掉
+ *	Sign out the user upon button click, 登出 html 28th
  */
 function handleSignoutClick() {
 	const token = gapi.client.getToken();
@@ -116,8 +116,8 @@ function handleSignoutClick() {
 /**
  * Upload file to Google Drive.
  */
-async function uFile() {   //85th，associateed with "content", not working now
-	document.getElementById('content').innerHTML = '上傳辨識中，請稍候！';   //對話框改動導致not working
+async function uFile() {   
+	document.getElementById('content').innerHTML = '上傳辨識中，請稍候！';   
 	document.getElementById('debug').innerHTML += "<br />進入上傳程序...";
 	var accessToken = gapi.auth.getToken().access_token; // Here gapi is used for retrieving the access token.
 	//console.log((await gapi.client.oauth2.userinfo.get()).result);
@@ -240,7 +240,7 @@ async function uFile() {   //85th，associateed with "content", not working now
 		//這行代碼創建了一個 XMLHttpRequest 對象，用於向伺服器發送 HTTP 請求。
 		var xhr = new XMLHttpRequest();
 		//post發送訊息給gpt
-		xhr.open('post', '/gpt');
+		xhr.open('post', '/gpt');                                                                                      //根據chatgpt的結果，./gpt後面可接金鑰
 		var form = new FormData();
 		//這行代碼將使用者的輸入文字 resp 作為一個 Blob 對象添加到 FormData 中，並指定其 MIME 類型為 "text"。
 		form.append('resp_msg', new Blob([resp], {
@@ -253,7 +253,7 @@ async function uFile() {   //85th，associateed with "content", not working now
 		xhr.onload = function() {
 			i = xhr.responseText;
 			document.getElementById('debug').innerHTML += "<br />小幫手回覆如下：<br /><pre>" + i + "</pre>";
-			document.getElementById('content').innerHTML = "小幫手回覆如下：<pre>" + i + "</pre>";                    //與content有關因介面改版，目前not working
+			document.getElementById('content').innerHTML = "小幫手回覆如下：<pre>" + i + "</pre>";                    //因chatgpt斷，目前not working
 		}
 	}
 }
