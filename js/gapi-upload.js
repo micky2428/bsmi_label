@@ -250,6 +250,7 @@ async function uFile() {
 		xhr.responseType = 'text';
 		xhr.send(form);
 		////這段代碼定義了當請求完成時要執行的回調函數
+		//i这个变量(字串，設定在250th)會將chatgpt返回的数据显示在网页上，分别显示在 debug 和 content 元素中
 		xhr.onload = function() {
 			i = xhr.responseText;
 			document.getElementById('debug').innerHTML += "<br />小幫手回覆如下：<br /><pre>" + i + "</pre>";
