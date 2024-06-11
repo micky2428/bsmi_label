@@ -221,9 +221,9 @@ async function uFile() {
 			xhr.responseType = 'text';
 			xhr.send();
 			xhr.onload = function() {
-					ocr_text = xhr.responseText;
+					ocr_text = xhr.responseText; //string
 					document.getElementById('debug').innerHTML += "<br />中文辨識如下<br /><pre>" + ocr_text + "</pre><br />傳小幫手回復...";
-					ChatGPT(ocr_text);
+					ChatGPT(ocr_text);  //243th
 				};
 			},function(err) {
 				console.error("Execute error", err);
@@ -242,7 +242,7 @@ async function uFile() {
 		//post發送訊息給gpt
 		xhr.open('post', '/gpt');                                                                                      //根據問chatgpt的結果，./gpt後面可接金鑰，還有prompt遺失，可能要透過flask連接.py檔
 		var form = new FormData();
-		//這行代碼將使用者的輸入文字 resp 作為一個 Blob 對象添加到 FormData 中，並指定其 MIME 類型為 "text"。
+		//這行代碼將使用者的輸入文字 resp 作為一個 Blob 對象添加到 FormData 中，並指定其 MIME 類型為 "text"，FormData 对象包含resp_msg(Blob/[使用者輸入resp是string，參226th]/类型：text)和email(string)
 		form.append('resp_msg', new Blob([resp], {
 			type: 'text'
 		}));
